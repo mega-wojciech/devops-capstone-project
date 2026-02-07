@@ -131,7 +131,7 @@ class TestAccountService(TestCase):
     # ADD YOUR TEST CASES HERE ...
     def test_get_account(self):
         """It should Read a single Account"""
-        account = self._create_accounts(1)[0] # Tworzymy jedno konto
+        account = self._create_accounts(1)[0]  # Tworzymy jedno konto
         resp = self.client.get(f"{BASE_URL}/{account.id}")
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
@@ -139,7 +139,7 @@ class TestAccountService(TestCase):
 
     def test_get_account_list(self):
         """It should Get a list of Accounts balance"""
-        self._create_accounts(5) # Tworzymy 5 kont
+        self._create_accounts(5)  # Tworzymy 5 kont
         resp = self.client.get(BASE_URL)
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
